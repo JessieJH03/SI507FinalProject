@@ -15,13 +15,13 @@ This Python application allows users to search for restaurants based on various 
 1. Ensure that Python is installed on your system.
 2. Clone or download this repository to your local machine.
 3. Install required dependencies:
-   """
+   ```
    pip install -r requirements.txt
-   """
+   ```
 4. Run the application:
-   """
+   ```
    python FinalProject_GUI.py
-   """
+   ```
 
 # Usage
 - Launch the application.
