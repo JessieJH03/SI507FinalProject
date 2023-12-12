@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
-from FinalProject import populate_tree_yelp_data, save_to_json_file, find_restaurant_by_category, find_restaurant_by_category_and_price, get_tripAdvisor_reviews
+from FinalProjectJSON import save_to_json_file
+from FinalProject import populate_tree_yelp_data, find_restaurant_by_category, find_restaurant_by_category_and_price, get_tripAdvisor_reviews, get_price_ranges_for_category
 
 def find_restaurants():
     location = location_entry.get()
@@ -9,6 +10,13 @@ def find_restaurants():
     root = populate_tree_yelp_data(location)
     save_to_json_file(root, f'restaurants_{location}.json')
     json_file_path = f'restaurants_{location}.json'
+
+    valid_price_ranges = get_price_ranges_for_category(root, category)
+
+    if price_range and price_range not in valid_price_ranges:
+        result_text.delete('1.0', tk.END)
+        result_text.insert(tk.END, "Selected price range is not valid for the chosen category.")
+        return
 
     if price_range:
         # If a price range is specified, find restaurants within that price range
