@@ -1,5 +1,6 @@
 import requests
 import json
+from FinalProjectJSON import save_to_json_file
 
 class TreeNode:
     def __init__(self, name):
@@ -219,9 +220,11 @@ def populate_tree_yelp_data(location):
 
     return root
 
+'''
 def save_to_json_file(root_node, file_name):
     with open(file_name, 'w') as file:
         json.dump(root_node.serialize(), file, indent=4)
+'''
 
 def find_restaurant_by_category(json_file, category, location, max_results=5):
     with open(json_file, 'r') as file:
